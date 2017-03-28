@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <title>Quotation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<script src="vendor/jquery/jquery.min.js"></script>
+	<link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+	<script src="vendor/angular/angular.min.js"></script>
+	<script src="vendor/bootstrap/bootstrap.min.js"></script>
+	<script src="src/app.js"></script>
+	<script src="vendor/jsPdf/jsPdf.min.js">
+    </script>
+</head>
+<body ng-controller="appController as vm">
+	<div class="col-md-12 row">
+		<div class="jumbotron" align="center">
+			<h2>HTML To PDF</h2>
+		</div>
+	</div>
+	<div class="col-md-8 col-md-offset-2 row">
+		<div class="panel panel-primary">
+			<div class="panel-heading" align="center">
+				<h4>HTML Form</h4>
+			</div>
+			<div class="panel-body">
+				<div class="col-md-12">
+					<div class="col-md-2"><h4>To</h4></div>
+					<div class="col-md-8"><input type="text" ng-model="vm.to" class="form-control"/></div>
+				</div>
+				<div class="col-md-12">
+					<div class="col-md-2"><h4>Text</h4></div>
+					<div class="col-md-8"><textarea type="text" ng-model="vm.text" rows="4" class="form-control"></textarea></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-8 col-md-offset-2 row">
+		<div class="panel panel-primary">
+			<div class="panel-heading" align="center">
+				<h4>PDF Generator</h4>
+			</div>
+			<div class="generatePDF" style="background-color: grey;">
+			<div class="panel-body" style="border: 2px solid grey;margin: 16px;border-radius: 10px;">
+				<div class="col-md-12">
+					<div class="col-md-2"><h4>To:</h4></div>
+					<div class="col-md-8"><span>{{vm.to}}</span></div>
+				</div>
+				<div class="col-md-12">
+					<div class="col-md-2"><h4>Text:</h4></div>
+					<div class="col-md-8"><pre style="background-color: white;border: none;"><h5>{{vm.text}}</h5></pre></div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-8 col-md-offset-2 row">
+		<div class="col-md-offset-10 col-md-2">
+			<button type="button" class="btn btn-primary" ng-click="vm.generatePdf()">Generate PDF</button>
+		</div>
+	</div>
+</body>
+</html>
